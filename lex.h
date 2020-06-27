@@ -45,10 +45,10 @@ struct astnode {
 
 struct gent {
 	int No = 0;
-	char op[50];
-	char opNo1[100];
-	char opNo2[100];
-	char result[100];
+	char op[50] = { "\0" };
+	char opNo1[100] = { "\0" };
+	char opNo2[100] = { "\0" };
+	char result[100] = { "\0" };
 };
 
 void error(int t);

@@ -100,6 +100,7 @@ bool scansymtable(char token[100]) {
 	if (i == 20) {
 		return false;
 	}
+	else return true;
 }
 
 void isID(astnode* father, int id) {

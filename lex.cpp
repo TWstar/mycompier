@@ -8,7 +8,7 @@ using namespace std;
 
 struct Vartab Tab[100];
 int cnt = 0;//结构体数组下标
-char Text[100000] = { '/0' };//文本
+char Text[100000] = { "/0" };//文本
 int len;//文本长度
 extern int p;
 
@@ -24,7 +24,7 @@ void error(int t) {
 }
 
 void delete_nono(int p) {
-	char Txtmp[100000] = { '/0' };
+	char Txtmp[100000] = { "/0" };
 	int k = 0;
 	int i = 0;
 	for (i = 0, k = 0; i < p; i++) {
@@ -65,7 +65,8 @@ void delete_nono(int p) {
 			k++;
 		}
 	}
-	Txtmp[k-1] = '\0';
+	if (k > 0)
+		Txtmp[k - 1] = '\0';
 	len = strlen(Txtmp);
 	strcpy(Text, Txtmp);
 	printf("过滤之后的程序:\n%s\n", Text);

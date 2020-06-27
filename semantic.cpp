@@ -58,9 +58,10 @@ void semant(astnode* root) {
 			return;
 		}
 		else if (strcmp(root->name, "AssignState") == 0) {
-			if (root->children[1]->id == ':' && root->children[2]->id == '=') {
-				semant(root->children[1]);
-			}
+			if(root->children[1]!=NULL&& root->children[2]!=NULL)
+				if (root->children[1]->id == ':' && root->children[2]->id == '=') {
+					semant(root->children[1]);
+				}
 			return;
 		}
 		else if (strcmp(root->name, "IBT") == 0) {
@@ -209,7 +210,8 @@ void semant(astnode* root) {
 			char op[30] = { "j" };
 			Notmp++;
 			no = Notmp;
-			strcat(op, root->children[0]->name);
+			if (root->children[0] != NULL)
+				strcat(op, root->children[0]->name);
 			strcpy(gen[Notmp].op, op);
 			semant(root->pro);
 			strcpy(gen[no].opNo1, Res);
@@ -321,15 +323,18 @@ void semant(astnode* root) {
 		}
 		
 		else if (strcmp(root->name, "Iden") == 0) {
-			strcpy(Res, root->children[0]->name);
+			if (root->children[0] != NULL)
+				strcpy(Res, root->children[0]->name);
 			//return;
 		}
 		else if (strcmp(root->name, "IntNo") == 0) {
-			strcpy(Res, root->children[0]->name);
+			if (root->children[0] != NULL)
+				strcpy(Res, root->children[0]->name);
 			//return;
 		}
 		else if (strcmp(root->name, "RealNo") == 0) {
-			strcpy(Res, root->children[0]->name);
+			if (root->children[0] != NULL)
+				strcpy(Res, root->children[0]->name);
 			//return;
 		}
 
